@@ -10,7 +10,7 @@ parent(maria, anna).
 parent(nicola, giacomo).
 parent(silva, giacomo).
 parent(erica, edoardo).
-parent(luca, eooardo).
+parent(luca, edoardo).
 parent(erica, andrea).
 parent(luca, andrea).
 parent(erica, libero).

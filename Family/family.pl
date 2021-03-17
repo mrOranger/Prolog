@@ -85,13 +85,17 @@ cousin(X, Y) :- mother(Z, X), mother(W, Y), sister(Z, W).
 cousin(X)    :- cousin(X, _).
 
 /* Mother in law relationship. X is the mother in law of Y, if X and Z are married and Y is the mother of Z */
-mother_in_law(X, Y) :- female(X), married(Y, Z), mother(X, Z).
+mother_in_law(X, Y) :- married(Y, Z), mother(X, Z).
 mother_in_law(X)    :- mother_in_law(X, _).
 
 /* Father in law relationsip. X is the father in law of Y, if X and Z are married and Y is the father of Z */
-father_in_law(X, Y) :- male(X), married(Y, Z), father(X, Z).
+father_in_law(X, Y) :- married(Y, Z), father(X, Z).
 father_in_law(X)    :- father_in_law(X, _).
 
 /* Sister in law relationship. X is the sister in law of Y, if X and Z are married and Y is the sister of Z */
-sister_in_law(X, Y) :- female(X), married(Y, Z), sister(X, Z).
+sister_in_law(X, Y) :- married(Y, Z), sister(X, Z).
 sister_in_law(X)    :- sister_in_law(X, _).
+
+/* Brother in law relationship. X is the brother in law of Y, if X and Z are married and Y is the brother of Z */
+brother_in_law(X, Y) :- married(Y, Z), brother(X, Z).
+brother_in_law(X)    :- brother_in_law(X, _).

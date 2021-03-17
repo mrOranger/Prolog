@@ -1,28 +1,40 @@
 /* Definition of facts */
-parent(carlo, stefano).
-parent(anna, stefano).
-parent(alfonso, marcella).
-parent(iginia, marcella).
-parent(francesco, alfonso).
-parent(lucia, alfonso).
-parent(iginia, carlo).
-parent(alfonso, carlo).
-parent(pietro, francesco).
-parent(giovanni, anna).
-parent(immacolata, anna).
+parent(piero, mario).
+parent(giovanna, mario).
+parent(camillo, maria).
+parent(maria_laura, maria).
+parent(mario, luca).
+parent(maria, luca).
+parent(mario, anna).
+parent(maria, anna).
+parent(nicola, giacomo).
+parent(silva, giacomo).
+parent(erica, edoardo).
+parent(luca, eooardo).
+parent(erica, andrea).
+parent(luca, andrea).
+parent(erica, libero).
+parent(luca, libero).
+parent(anna, elisabetta).
+parent(giacomo, elisabetta).
 
-male(carlo).
-male(stefano).
-male(alfonso).
-male(francesco).
-male(pietro).
-male(giovanni).
+male(piero).
+male(mario).
+male(camillo).
+male(nicola).
+male(giacomo).
+male(luca).
+male(edoardo).
+male(andrea).
+male(libero).
 
+female(giovanna).
+female(maria).
+female(maria_laura).
+female(silvia).
 female(anna).
-female(marcella).
-female(iginia).
-female(lucia).
-female(immacolata).
+female(erica).
+female(elisabetta).
 
 /* Definition of rules */
 

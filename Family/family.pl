@@ -83,3 +83,7 @@ cousin(X, Y) :- father(Z, X), mother(W, Y), brother(Z, W).
 cousin(X, Y) :- mother(Z, X), father(W, Y), sister(Z, W).
 cousin(X, Y) :- mother(Z, X), mother(W, Y), sister(Z, W).
 cousin(X)    :- cousin(X, _).
+
+/* Mother in law relationship. X is the mother in law of Y, if X and Z are married and Y is the mother of Z */
+mother_in_law(X, Y) :- female(X), married(Y, Z), mother(X, Z).
+mother_in_law(X)    :- mother_in_law(X, _).

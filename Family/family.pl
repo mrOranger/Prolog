@@ -105,4 +105,5 @@ or Z is the parent of X and Z is the ancestor of Y. */
 ancestor(X, Y) :- parent(X, Z), ancestor(Z, Y).
 ancestor(X, Y) :- parent(X, Y).
 
-/*
+/* Descendant relationship. X is the descendant of Y, if Y is the ancestor of Y */
+descendant(X, Y) :- ancestor(Y, X).

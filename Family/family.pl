@@ -42,6 +42,10 @@ son(X)    :- son(X, _).
 daughter(X, Y) :- parent(Y, X), female(X).
 daughter(X)    :- daugher(X, _).
 
+/* Married rule. X is married with Y if the X is the parent of Z and Y is the parent of Z */
+married(X, Y) :- parent(X, Z), parent(Y, Z), X \== Y.
+married(X)    :- married(X, _).
+
 /* Brother rule. X is the brother of Y, if X is male and the father of X is the father of Y */
 brother(X, Y) :- male(X), father(Z, X), father(Z, Y), X \== Y.
 brother(X) :- brother(X, _).

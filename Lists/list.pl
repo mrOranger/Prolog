@@ -10,3 +10,23 @@ is_member(X, [_ | T]) :- is_member(X, T).
 concat_list([], L_2, L_2).
 concat_list(L_2, [], L_2).
 concat_list([H_1 | T_1], C_1, [H_1 | T_2]) :- concat_list(T_1, C_1, T_2).
+
+/* Delete an item from a list, requires analyse the following cases:
+1. If the element to delete is the head of the list, return the tail.
+2. If the element to delete is in the tail, find in the tail and append the head. */
+delete_item([H | T], H, T).
+delete_item([H | T], X, [H | L]) :- delete_item(T, X, L).
+
+/* Delete the head from a list, requires two conditions.
+1. If the list is empty, the result will be the empty list.
+2. If the list has one or more elements, just return the tail. */
+remove_head([], []).
+remove_head([_ | T], T).
+
+/* Delete the tail from a list, requires two conditions.
+1. If the list is empty, the result will be the empty list.
+2. If the list has one or more elements, scan the list until the tail is reached and append the elements. 
+Notice that in this case, the tail refers to the last element!*/
+remove_tail([], []).
+remove_tail([_ | []], []).
+remove_tail([H | T], [H | L]) :- remove_tail(T, L).

@@ -20,13 +20,25 @@ delete_item([H | T], X, [H | L]) :- delete_item(T, X, L).
 /* Delete the head from a list, requires two conditions.
 1. If the list is empty, the result will be the empty list.
 2. If the list has one or more elements, just return the tail. */
-remove_head([], []).
 remove_head([_ | T], T).
 
 /* Delete the tail from a list, requires two conditions.
 1. If the list is empty, the result will be the empty list.
 2. If the list has one or more elements, scan the list until the tail is reached and append the elements. 
 Notice that in this case, the tail refers to the last element!*/
-remove_tail([], []).
 remove_tail([_ | []], []).
 remove_tail([H | T], [H | L]) :- remove_tail(T, L).
+
+/* Append one list to another, returns a list composed of two lists. 
+1. If I'm passing an element, just return the lists whose head is that element.
+2. If I'm passing a list, return the concatenation of the two lists.
+*/
+append_lists(X, L, [X | L]).
+
+/* Get the last element of a list.
+1. If the list is empty the last element is the empty list.
+2. If the list is composed of only one element, the last element is the head.
+3. If the list has more than one element. the last one must be find in the tail. 
+*/
+last_element([H | []], H).
+last_element([_ | T], L) :- last_element(T, L).

@@ -65,3 +65,11 @@ Counter starts from 0 and goes until Index.
 Element will the element to return.*/
 get_nth([H | _], Index, Index, H).
 get_nth([_ | L], Index, Counter, E) :- Counter_1 is Counter + 1, get_nth(L, Index, Counter_1, E).
+
+/* Checks if two lists are equal, removing one element at time and comparing them. */
+equals([], []).
+equals([H_1 | T_1], [H_2 | T_2]) :- H_1 == H_2, equals(T_1, T_2).
+
+/* Sum all the elements in a list */
+sum([], 0).
+sum([H | T], Sum_2) :- sum(T, Sum_1), Sum_2 is Sum_1 + H.

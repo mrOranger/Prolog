@@ -58,3 +58,10 @@ interm(9, nine).
 
 inwords([H | []], [W]) :- interm(H, W).
 inwords([H_1 | T_1], [H_2 | T_2]) :- interm(H_1, H_2), inwords(T_1, T_2).
+
+/* Get the n-th element of a list (starting by 0 index), get_nth([Head | List], Index, Counter, Element).
+Index is the index of the element to return.
+Counter starts from 0 and goes until Index.
+Element will the element to return.*/
+get_nth([H | _], Index, Index, H).
+get_nth([_ | L], Index, Counter, E) :- Counter_1 is Counter + 1, get_nth(L, Index, Counter_1, E).

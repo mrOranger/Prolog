@@ -42,3 +42,19 @@ append_lists(X, L, [X | L]).
 */
 last_element([H | []], H).
 last_element([_ | T], L) :- last_element(T, L).
+
+/* Translate a list of numbers in a list of terms. 
+First, we need relationships between the numbers and the terms as these */
+interm(0, zero).
+interm(1, one).
+interm(2, two).
+interm(3, three).
+interm(4, four).
+interm(5, five).
+interm(6, six).
+interm(7, seven).
+interm(8, eight).
+interm(9, nine).
+
+inwords([H | []], [W]) :- interm(H, W).
+inwords([H_1 | T_1], [H_2 | T_2]) :- interm(H_1, H_2), inwords(T_1, T_2).

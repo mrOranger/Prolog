@@ -10,3 +10,6 @@ The following Prolog script aims to implements the following operations on lists
 - _append lists_, append one list inside another.
 - _last element_, returns the last element of a list. 
 - _in words_, converts a list in its word representation, using the relationship _in term_.
+- _get nth_, returns the n-the element of a list.
+- _equals_, checks if two lists are equal.
+- _sum_, returns the sum of a list of numbers.

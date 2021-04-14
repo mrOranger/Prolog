@@ -73,3 +73,20 @@ equals([H_1 | T_1], [H_2 | T_2]) :- H_1 == H_2, equals(T_1, T_2).
 /* Sum all the elements in a list */
 sum([], 0).
 sum([H | T], Sum_2) :- sum(T, Sum_1), Sum_2 is Sum_1 + H.
+
+/* Replace an element of a list with another. Let's consider the basic case:
+    - Replace an element of an empty list means that the results will be an empty list.
+   The other cases are:
+    - If the element to replace is the head of a list, then the new list will be the same,
+      but with the head modified. 
+    - If the element is inside the list, consider the remaining elements, and the new list is the same.
+*/
+replace([], _, _, []).
+replace([H | T], H, Y, [Y | T]).
+replace([H | T], X, Y, [H | L]) :- replace(T, X, Y, L).
+
+/* Increase the element of a list with an inpute value. */
+
+/* Return the sublist of a given length. */
+
+/* Remove duplicates from a list. */

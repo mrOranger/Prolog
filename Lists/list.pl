@@ -93,3 +93,10 @@ increase([H | T], X, [Y | L]) :- increase(T, X, L), Y is H + X.
 remove_duplicate([], []).
 remove_duplicate([H | T], L) :- member(H, T), remove_duplicate(T, L).
 remove_duplicate([H | T], [H | L]) :- not(member(H, T)), remove_duplicate(T, L).
+
+/* Push an element in the list */
+push_elem(X, [], [X]).
+push_elem(X, L, [X | L]).
+
+/* Insert an element in the list in all possible positions */
+list_insert(X, L, R) :- delete_item(R, X, L).

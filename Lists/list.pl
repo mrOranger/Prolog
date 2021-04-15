@@ -86,7 +86,10 @@ replace([H | T], H, Y, [Y | T]).
 replace([H | T], X, Y, [H | L]) :- replace(T, X, Y, L).
 
 /* Increase the element of a list with an inpute value. */
-
-/* Return the sublist of a given length. */
+increase([], _, []).
+increase([H | T], X, [Y | L]) :- increase(T, X, L), Y is H + X.
 
 /* Remove duplicates from a list. */
+remove_duplicate([], []).
+remove_duplicate([H | T], L) :- member(H, T), remove_duplicate(T, L).
+remove_duplicate([H | T], [H | L]) :- not(member(H, T)), remove_duplicate(T, L).

@@ -100,3 +100,8 @@ push_elem(X, L, [X | L]).
 
 /* Insert an element in the list in all possible positions */
 list_insert(X, L, R) :- delete_item(R, X, L).
+
+/* Reverse the elements of a given list.
+   - If the list is empty, the result will be an empty list. */
+reverse_list([], []).
+reverse_list([H | T], R) :- reverse_list(T, L), concat_list(L, [H], R).

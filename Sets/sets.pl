@@ -1,5 +1,5 @@
 /* Defining the module set, the predicates that can be exported and their ariety */
-:- module(set, [find/2, remove/3, max_value/2, max_value/3, swi_max_value/2, swi_max_value/3, merge_set/3, intersect/3]).
+:- module(set, [find/2, remove/3, max_value/2, max_value/3, swi_max_value/2, swi_max_value/3, merge_set/3, intersect/3, difference/3]).
 
 /*# From this moment, the predicates will be preceded by a description, in Declarative Language, of their working */
 
@@ -65,6 +65,18 @@ intersect([], _, []).
 intersect([H_1 | T_1], Set_2, [H_1 | Set_3]) :- find(Set_2, H_1), !, intersect(T_1, Set_2, Set_3).
 intersect([_ | T_1], Set_2, Set_3) :- intersect(T_1, Set_2, Set_3).
 
+/* difference predicate executes the difference between two sets.
+    1. If the sets are empty, then the result will be an empty set.
+    2. If one of the two sets is empty, then the result will be the non-empty set.
+    3. If the head of the first set doesn't appear in the second set, then append it in the resulting set.
+    4. If the head appears in the second list, then remove it from the first and the second, and compute the difference again. 
+*/
+difference([], [], []).
+difference(Set_1, [], Set_1).
+difference([], Set_2, Set_2).
+difference([H_1 | T_1], Set_2, [H_1 | Set_3]) :- \+ find(Set_2, H_1), difference(T_1, Set_2, Set_3).
+difference([H_1 | T_1], Set_2, Set_3) :- find(Set_2, H_1), 
+                                        remove(T_1, H_1, New_Set_1), remove(Set_2, H_1, New_Set_2), difference(New_Set_1, New_Set_2, Set_3).
 
 
 /* Some useful predicates */

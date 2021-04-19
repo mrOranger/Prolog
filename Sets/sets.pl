@@ -56,14 +56,14 @@ merge_set([H_1 | T_1], Set_2, [H_1 | Set_3]) :- merge_set(T_1, Set_2, Set_3).
 
 /* intersect predicate performs the intersection between two sets (Set_1, Set_2) in a new one (Set_3).
     1. If the two sets are empty, then the intersection will be the empty set.
-    2. If one of the two sets is empty, then the intersection will be the non-empty set.
-    3. If the sets are not empty, and the head of the first set doesn't appear in the second set,
+    2. If one of the two sets is empty, then the intersection will be the empty set.
+    3. If the sets are not empty, and the head of the first set appears in the second set,
     then the intersection will be the head plus the rest of the second set.
-    N.B.: in this first implementation, the sets must have different values. 
 */
-intersect([], [], []) :- !.
-intersect([], Set_2, Set_2).
-intersect([H_1 | T_1], Set_2, [H_1 | Set_3]) :- not(find(Set_2, H_1)), intersect(T_1, Set_2, Set_3).
+intersect([], [], []).
+intersect([], _, []).
+intersect([H_1 | T_1], Set_2, [H_1 | Set_3]) :- find(Set_2, H_1), !, intersect(T_1, Set_2, Set_3).
+intersect([_ | T_1], Set_2, Set_3) :- intersect(T_1, Set_2, Set_3).
 
 
 

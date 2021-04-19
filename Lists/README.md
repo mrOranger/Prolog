@@ -13,3 +13,9 @@ The following Prolog script aims to implements the following operations on lists
 - _get nth_, returns the n-the element of a list.
 - _equals_, checks if two lists are equal.
 - _sum_, returns the sum of a list of numbers.
+- _replace_, replaces an element with a given value.
+- _increase_, increases the elements of a list of numbers.
+- _remove duplicate_, removes the duplicates from a given list.
+- _push elem_, pushes an element on the top of a list.
+- _list insert_, insert an element in all possible positions of a list.
+- _reverse list_, reverses the elements of a list. 

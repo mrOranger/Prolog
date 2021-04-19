@@ -105,3 +105,4 @@ list_insert(X, L, R) :- delete_item(R, X, L).
    - If the list is empty, the result will be an empty list. */
 reverse_list([], []).
 reverse_list([H | T], R) :- reverse_list(T, L), concat_list(L, [H], R).
+

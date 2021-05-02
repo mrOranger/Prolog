@@ -106,3 +106,10 @@ list_insert(X, L, R) :- delete_item(R, X, L).
 reverse_list([], []).
 reverse_list([H | T], R) :- reverse_list(T, L), concat_list(L, [H], R).
 
+/* Checks if the elements of a list are smaller than another one.
+    - This is true if both lists are empty.
+    - Otherwise, starting from the head, compare them and procede to the tail.
+*/
+less_list([],[]).
+less_list([H_1 | T_1], [H_2 | T_2]) :- H_1 < H_2, less_list(T_1, T_2).
+
